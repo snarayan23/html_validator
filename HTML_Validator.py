@@ -22,7 +22,7 @@ def validate_html(html):
     # track of not just the 3 types of parentheses,
     # but arbitrary text located between the html tags
     stack = []
-    if html == '': 
+    if html == '':
         return True
     tags = _extract_tags(html)
     if tags == []:
@@ -31,7 +31,7 @@ def validate_html(html):
         if '/' not in tag:
             stack.append(tag)
         else:
-            if len(stack)==0:
+            if len(stack) == 0:
                 return False
             if ('/' in tag and stack[-1][1:-1] == tag[2:-1]):
                 stack.pop()
