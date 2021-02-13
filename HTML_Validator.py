@@ -58,5 +58,5 @@ def _extract_tags(html):
     if len(tag_index) % 2 != 0 or len(tag_index) == 0:
         return tags
     for i in range(0, len(tag_index), 2):
-        tags.append(html[tag_index[i]: tag_index[i+1]+1])
+        tags.append(html[tag_index[i]: tag_index[i + 1] + 1])
     return tags
