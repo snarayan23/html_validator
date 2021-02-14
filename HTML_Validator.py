@@ -55,8 +55,12 @@ def _extract_tags(html):
     '''
     tag_index = [x for x in range(len(html)) if html[x] in '<>']
     tags = []
+    curr_tag = ''
     if len(tag_index) % 2 != 0 or len(tag_index) == 0:
         return tags
     for i in range(0, len(tag_index), 2):
-        tags.append(html[tag_index[i]: tag_index[i + 1] + 1])
+        curr_tag = html[tag_index[i]: tag_index[i + 1] + 1]
+        if curr_tag.find(' ') != -1:
+            curr_tag = html[tag_index[i]: html.index(' ', tag_index[i])] + '>'
+        tags.append(curr_tag)
     return tags
